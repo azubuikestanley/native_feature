@@ -23,7 +23,7 @@ class Place {
   Place({
     @required this.id,
     @required this.title,
-     this.location,
+    @required this.location,
     @required this.image,
   });
 }
