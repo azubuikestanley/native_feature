@@ -40,3 +40,7 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+#add ios/android folder to hide api key
+/android
+/ios
