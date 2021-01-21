@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../widgets/image_input.dart';
 import '../widgets/location_input.dart';
 import '../providers/great_places.dart';
-import '../models/place.dart';
+import '../models/place_location.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
@@ -25,8 +25,10 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   }
 
   void _selectPlace(double lat, double lng) {
-    _pickedLocation = PlaceLocation(latitude: lat, longitude: lng);
-    // _pickedLocation = PlaceLocation(latitude: lat, longitude: lng);
+    _pickedLocation = PlaceLocation(
+      latitude: lat,
+      longitude: lng,
+    );
   }
 
   void _savePlace() {
@@ -38,6 +40,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     }
     Provider.of<GreatPlaces>(context, listen: false)
         .addPlace(_titleController.text, _pickedImage, _pickedLocation);
+    // .addPlace(_titleController.text, _pickedImage,  new PlaceLocation(latitude: _pickedLocation.latitude, longitude: _pickedLocation.longitude,);
     Navigator.of(context).pop();
   }
 

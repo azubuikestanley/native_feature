@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
+import '../models/place_location.dart';
 import '../models/place.dart ';
 import '../helpers/db_helper.dart';
 import '../helpers/location_helper.dart';
@@ -12,6 +13,10 @@ class GreatPlaces with ChangeNotifier {
 
   List<Place> get items {
     return [..._items];
+  }
+
+  Place findById(String id) {
+    return _items.firstWhere((place) => place.id == id);
   }
 
   Future<void> addPlace(
